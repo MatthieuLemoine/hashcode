@@ -12,7 +12,6 @@ class Position{
         let a = parameters.kNeighbour * balloons.reduce((p,c) => p + Math.min(2*parameters.V,this.getDistanceFromBalloon(c,parameters.C)),0);
         let b = parameters.kBorder * this.indicatrice(parameters.dBorderMax,parameters.R)*(parameters.dBorderMax - this.getDistanceFromBorder(parameters.R));
         let c = parameters.kReachedCells*this.getReachedCells(parameters.reach,parameters.targets).length;
-        //console.log(a - b + c);
         return a - b + c;
     }
 
@@ -20,7 +19,7 @@ class Position{
         return new Number((this.r <= dBorderMax) || (this.r  >= R - dBorderMax));
     }
 
-    getDistanceFromBorder(R){ // haut et bas uniquement
+    getDistanceFromBorder(R){
         return Math.min(this.r,R - this.r);
     }
 

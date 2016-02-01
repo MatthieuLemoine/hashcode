@@ -81,6 +81,5 @@ process.stdin
         parameters.targets = casesCibles;
         for(let i = 0; i < parameters.T; i++){
             air.play(parameters);
-            //console.log('End tour');
         }
     });
