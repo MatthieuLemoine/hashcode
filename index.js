@@ -72,6 +72,7 @@ process.stdin
                 if(altitude === parameters.A && numLigne >= parameters.R){
                     //this.push('');
                     next();
+                    return;
                 }
             }
         }
