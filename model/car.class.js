@@ -24,8 +24,14 @@ class Car{
             
             if (bestStreet.evaluate() <= 0){
                 let index = parseInt(Math.random() * (sorted.length));
-              //  console.log("index",index);
+                //  console.log("index",index);
+                // aleatoire
                 bestStreet = sorted[index];
+                if (!bestStreet){
+                    console.log(index,sorted.length);
+                }
+                // aleatoire en fct du coût
+                //bestStreet = this.decideBetweenSeveralNullMoves(acceptable);
             }
             //console.log(bestStreet);
             bestStreet.travelled = true;
@@ -39,15 +45,15 @@ class Car{
     
     
     decideBetweenSeveralNullMoves(streets){
-        var totalCost;
+        var totalCost = streets.reduce((p,c) => p + c.cost,0);
         var i = 0;
         var retrievedStreet = streets[i];
-        var partialSum = 1 - retrievedStreet.cost/totalCost;
+        var partialSum = retrievedStreet.cost/totalCost;
         var random = Math.random();
         while(partialSum < random){
             i++;
             retrievedStreet=streets[i];
-            partialSum=partialSum + 1 - retrievedStreet.cost/totalCost;
+            partialSum=partialSum + retrievedStreet.cost/totalCost;
         }
         return retrievedStreet;
     }

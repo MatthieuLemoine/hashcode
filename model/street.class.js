@@ -16,7 +16,8 @@ class Street{
         if(this.travelled){
             return 0;
         }else{
-            return (this.distance / this.cost);
+            //return (this.distance / this.cost);
+            return this.distance;
         }
     }
     
